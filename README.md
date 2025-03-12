@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+- coding time ： 6 hours
+- searching time：4 hours
+
 ## Getting Started
 
 First, run the development server:
