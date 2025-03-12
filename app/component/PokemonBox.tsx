@@ -20,7 +20,14 @@ export default function PokemonBox({
           width={35}
           height={50}
         />
-        <span>number:{number}</span>
+        <div className="flex flex-col justify-center ">
+          <span>number:{number}</span>
+          <div>
+            {type.map((tName: string) => {
+              return <span className="type-tag border">{tName}</span>
+            })}
+          </div>
+        </div>
       </div>
     );
   }

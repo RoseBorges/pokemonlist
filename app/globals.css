@@ -30,3 +30,11 @@ body {
 .page-header {
   text-align: center;
 }
+.type-tag {
+  font-size: 12px;
+  background-color: oklch(0.901 0.058 230.902);
+  border-color: oklch(0.865 0.127 207.078);
+  border-radius: 2px;
+  color: #fff;
+  margin-left: 2px;
+}

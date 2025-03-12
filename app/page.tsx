@@ -9,7 +9,7 @@ export default async function Home() {
     <div>
       <div className="page-header">欢迎来到宝可梦世界</div>
       <div className="p-6">
-        <Content list={typeList} />
+        <Content typeList={typeList} />
       </div>
     </div>
   );

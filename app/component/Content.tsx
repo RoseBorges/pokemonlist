@@ -7,9 +7,9 @@ import PokemonBox from './PokemonBox';
 
 const PAGE_SIZE = 24;
 export default function Content({
-    list,
+    typeList,
 }: {
-    list: any,
+    typeList: Array<any>,
   }) {
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -57,7 +57,7 @@ export default function Content({
     }
 
     // 通过筛选项，【两两组合】求交集
-    const getFilterList = async (newList: Array<any>, urlPage = 1) => {
+    const getFilterList = async (newList: string[], urlPage = 1) => {
       let newResObj = resObj;
       let newShowList: string[] = [];
       if (newList.length === 1) {
@@ -83,7 +83,7 @@ export default function Content({
     }
 
     // 点击事件之后：1.更新type的map表，2.更新列表
-    const getResByType = async (name: string, newList: Array<any>) => {
+    const getResByType = async (name: string, newList: string[]) => {
       let newResObj = resObj;
       if (!newResObj[name]) {
         const list = await getPokeListByType(name);
@@ -179,7 +179,7 @@ export default function Content({
         <div>
           <section className="flex flex-wrap items-center gap-x-6 gap-y-3">
             <div>types: </div>
-            {list.map((item: {name:string, url:string}) => (
+            {typeList.map((item: {name:string, url:string}) => (
               <div
                 className={`border p-4 cursor-pointer ${select.length && select.indexOf(item.name) !== -1 ? 'bg-blue-500 text-white' : ''}`}
                 onClick={() => {onTriggerItem(item)}} 
@@ -188,7 +188,9 @@ export default function Content({
             ))}
           </section>
 
-          {loading && <div className="flex flex-wrap justify-center p-10">Loading...</div>}
+          {loading && (
+            <div className="flex flex-wrap justify-center p-10">Loading...</div>
+          )}
 
           {!loading && <section className="grid grid-cols-6 gap-16 pt-6">
             {!!select && showList.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map((item:any) => {
